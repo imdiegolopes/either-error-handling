@@ -1,0 +1,16 @@
+{
+  "name": "either",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only index.ts"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.2",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.6",
+    "uuid": "^9.0.0"
+  }
+}
