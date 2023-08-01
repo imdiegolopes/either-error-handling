@@ -2,45 +2,45 @@ import { v4 as uuidv4 } from 'uuid';
 
 console.log("Hello!");
 
-type Either<L, R> = Left<L, R> | Right<L, R>;
+type Either<L, R> = Left<L> | Right<R>;
 
-class Left<L, R> {
+class Left<L> {
   value: L;
 
   constructor(value: L) {
     this.value = value;
   }
 
-  isLeft(): this is Left<L, R> {
+  isLeft(): this is Left<L> {
     return true;
   }
 
-  isRight(): this is Right<L, R> {
+  isRight(): this is Right<L> {
     return false;
   }
 }
 
-class Right<L, R> {
+class Right<R> {
   value: R;
   constructor(value: R) {
     this.value = value;
   }
 
-  isLeft(): this is Left<L, R> {
+  isLeft(): this is Left<R> {
     return false;
   }
 
-  isRight(): this is Right<L, R> {
+  isRight(): this is Right<R> {
     return true;
   }
 }
 
 function left<L, R>(value: any): Either<L, R> {
-  return new Left<L, R>(value);
+  return new Left<L>(value);
 }
 
 function right<L, R>(value: any): Either<L, R> {
-  return new Right<L, R>(value);
+  return new Right<R>(value);
 }
 
 export type Input = {
